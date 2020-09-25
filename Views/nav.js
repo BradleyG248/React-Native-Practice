@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Alert, StyleSheet, Text, View, Button, Image } from 'react-native';
+import { Alert, StyleSheet, Text, View, Button, Image, Dimensions } from 'react-native';
 
 export default class Nav extends React.Component {
   constructor() {
@@ -9,9 +9,8 @@ export default class Nav extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Image style={styles.image} source={require("../assets/favicon.png")} />
-
+      <View nativeId="nav-view" style={styles.container}>
+        <Image style={styles.portrait} source={require('../assets/default-user-image.png')} />
       </View>
     );
   }
@@ -20,15 +19,24 @@ export default class Nav extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    height: '10%',
     backgroundColor: '#fff',
-    alignItems: 'flex-start',
-    justifyContent: 'center',
-    marginTop: '5%',
-    width: '100%'
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    marginTop: '6%',
+    height: '6%',
+    width: '100%',
+    flexDirection: 'row'
   },
   image: {
-    alignSelf: 'flex-end',
+    alignSelf: 'center',
     marginRight: 10,
+  },
+  portrait: {
+    height: (Dimensions.get('window').height * 0.04),
+    width: (Dimensions.get('window').height * 0.04),
+    alignSelf: 'center',
+    marginLeft: 10,
+    borderRadius: 100,
+    backgroundColor: 'green',
   }
 });
